@@ -1,18 +1,10 @@
-import {
-  defineConfig,
-} from "sanity";
+import { defineConfig } from "sanity";
 
-import {
-  structureTool,
-} from "sanity/structure";
+import { structureTool } from "sanity/structure";
 
-import {
-  visionTool,
-} from "@sanity/vision";
+import { visionTool } from "@sanity/vision";
 
-import {
-  schemaTypes,
-} from "./src/sanity/schemaTypes";
+import { schemaTypes } from "./src/sanity/schemaTypes";
 
 
 export default defineConfig({
@@ -20,9 +12,15 @@ export default defineConfig({
 
   title: "Gizkidesigns",
 
-  projectId: "w6a33f8n",
+  projectId:
+    process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ||
+    "w6a33f8n",
 
-  dataset: "production",
+  dataset:
+    process.env.NEXT_PUBLIC_SANITY_DATASET ||
+    "production",
+
+  basePath: "/studio",
 
   plugins: [
     structureTool(),
@@ -30,7 +28,6 @@ export default defineConfig({
   ],
 
   schema: {
-    types:
-      schemaTypes,
+    types: schemaTypes,
   },
 });

@@ -1,0 +1,17 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/api/contact/route": "app/api/contact/route.js",
+  "/api/translate/route": "app/api/translate/route.js",
+  "/design/[slug]/page": "app/design/[slug]/page.js",
+  "/design/case-studies/[slug]/page": "app/design/case-studies/[slug]/page.js",
+  "/design/page": "app/design/page.js",
+  "/page": "app/page.js",
+  "/pricing/[slug]/page": "app/pricing/[slug]/page.js",
+  "/pricing/page": "app/pricing/page.js",
+  "/projects/[slug]/page": "app/projects/[slug]/page.js",
+  "/projects/page": "app/projects/page.js",
+  "/services/page": "app/services/page.js",
+  "/studio/[[...tool]]/page": "app/studio/[[...tool]]/page.js"
+}

@@ -1,0 +1,17 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/api/contact/route": "/api/contact",
+  "/api/translate/route": "/api/translate",
+  "/design/[slug]/page": "/design/[slug]",
+  "/design/case-studies/[slug]/page": "/design/case-studies/[slug]",
+  "/design/page": "/design",
+  "/page": "/",
+  "/pricing/[slug]/page": "/pricing/[slug]",
+  "/pricing/page": "/pricing",
+  "/projects/[slug]/page": "/projects/[slug]",
+  "/projects/page": "/projects",
+  "/services/page": "/services",
+  "/studio/[[...tool]]/page": "/studio/[[...tool]]"
+}
