@@ -18,6 +18,7 @@ import {
 } from "react";
 
 import GalleryMedia from "@/components/gallery/GalleryMedia";
+import InteractiveEmbed from "@/components/gallery/InteractiveEmbed";
 
 
 export type HomeGalleryItem = {
@@ -27,7 +28,8 @@ export type HomeGalleryItem = {
 
   mediaType:
     | "image"
-    | "video";
+    | "video"
+    | "embed";
 
   alt?: string;
 
@@ -53,6 +55,8 @@ export type HomeGalleryItem = {
       mimeType?: string;
     };
   };
+
+  embedUrl?: string;
 };
 
 
@@ -248,6 +252,26 @@ export default function HomeGallery({
             item.video
               ?.asset
               ?.url;
+
+
+          /* INTERACTIVE PROJECT / COMPONENT */
+
+          if (
+            item.mediaType === "embed" &&
+            item.embedUrl
+          ) {
+            return (
+              <article
+                key={item._id}
+                className="portfolio-grid-cell"
+              >
+                <InteractiveEmbed
+                  src={item.embedUrl}
+                  title={item.title}
+                />
+              </article>
+            );
+          }
 
 
           /* IMAGE */

@@ -36,13 +36,6 @@ const navigation = [
       "/design",
   },
 
-  {
-    label:
-      "Pricing",
-
-    href:
-      "/pricing",
-  },
 
   {
     label:

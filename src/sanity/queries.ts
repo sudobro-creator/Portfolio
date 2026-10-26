@@ -13,6 +13,7 @@ export const HOME_GALLERY_QUERY = `
     mediaType,
     alt,
     order,
+    embedUrl,
 
     image {
       asset-> {
@@ -98,6 +99,7 @@ export const ALL_DESIGNS_QUERY = `
     mediaType,
     alt,
     order,
+    embedUrl,
 
     caseStudySlug {
       current
@@ -146,6 +148,7 @@ export const DESIGNS_BY_CATEGORY_QUERY = `
     mediaType,
     alt,
     order,
+    embedUrl,
 
     caseStudySlug {
       current
@@ -312,62 +315,5 @@ export const OTHER_CASE_STUDIES_QUERY = `
         mimeType
       }
     }
-  }
-`;
-
-
-/* ================================================================
-   PRICING
-================================================================ */
-
-export const PRICING_SERVICE_QUERY = `
-  *[
-    _type == "pricingService"
-    && status == "published"
-    && service == $service
-  ][0] {
-    _id,
-    service,
-
-    standardTitle,
-    standardDescription,
-    standardPrice,
-    standardDeliverables,
-
-    standardIcon {
-      asset-> {
-        _id,
-        url,
-
-        metadata {
-          dimensions {
-            width,
-            height,
-            aspectRatio
-          }
-        }
-      }
-    },
-
-    tailoredTitle,
-    tailoredDescription,
-    tailoredPriceText,
-
-    tailoredIcon {
-      asset-> {
-        _id,
-        url,
-
-        metadata {
-          dimensions {
-            width,
-            height,
-            aspectRatio
-          }
-        }
-      }
-    },
-
-    meetingUrl
   }
 `;

@@ -705,6 +705,11 @@ export const designItem =
               title: "Video",
               value: "video",
             },
+
+            {
+              title: "Interactive Project / Component",
+              value: "embed",
+            },
           ],
 
           layout:
@@ -719,7 +724,24 @@ export const designItem =
 
         validation:
           (Rule) =>
-            Rule.required(),
+            Rule.required().custom(
+              (value, context) => {
+                const parent =
+                  context.parent as {
+                    category?: string;
+                  };
+
+                if (
+                  parent?.category ===
+                    "case-studies" &&
+                  value === "embed"
+                ) {
+                  return "Case study cards must use an image/GIF or video cover.";
+                }
+
+                return true;
+              }
+            ),
       }),
 
 
@@ -764,6 +786,49 @@ export const designItem =
           ({ parent }) =>
             parent?.mediaType !==
             "video",
+      }),
+
+
+      defineField({
+        name:
+          "embedUrl",
+
+        title:
+          "Interactive Project / Component URL",
+
+        type:
+          "url",
+
+        description:
+          "Paste the live HTTPS URL for the project or component. It will open interactively inside the portfolio.",
+
+        hidden:
+          ({ parent }) =>
+            parent?.mediaType !==
+            "embed",
+
+        validation:
+          (Rule) =>
+            Rule.uri({
+              scheme: ["http", "https"],
+            }).custom(
+              (value, context) => {
+                const parent =
+                  context.parent as {
+                    mediaType?: string;
+                  };
+
+                if (
+                  parent?.mediaType ===
+                    "embed" &&
+                  !value
+                ) {
+                  return "Please paste the live project/component URL.";
+                }
+
+                return true;
+              }
+            ),
       }),
 
 

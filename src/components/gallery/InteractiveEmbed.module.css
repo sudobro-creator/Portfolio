@@ -1,0 +1,141 @@
+.shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 26px;
+  overflow: hidden;
+}
+
+.frameWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--grid-border);
+  border-radius: var(--media-radius);
+}
+
+.frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  border: 0;
+  background: #ffffff;
+}
+
+.expandButton {
+  position: absolute;
+  z-index: 5;
+  right: 38px;
+  bottom: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: #ffffff;
+  background: rgba(15, 15, 15, 0.82);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.expandButton:hover {
+  background: var(--brand);
+  transform: translateY(-1px);
+}
+
+.modal {
+  position: fixed;
+  z-index: 7000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 34px;
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+.modalPanel {
+  position: relative;
+  width: min(1500px, 96vw);
+  height: min(920px, 92vh);
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+.modalFrame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #ffffff;
+}
+
+.closeButton {
+  position: fixed;
+  z-index: 7001;
+  top: 20px;
+  right: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: #111111;
+  background: #ffffff;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+}
+
+@media (max-width: 760px) {
+  .shell {
+    padding: 15px;
+  }
+
+  .expandButton {
+    right: 25px;
+    bottom: 25px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .modal {
+    padding: 12px;
+  }
+
+  .modalPanel {
+    width: 100%;
+    height: calc(100dvh - 24px);
+  }
+
+  .closeButton {
+    top: 18px;
+    right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shell {
+    padding: 20px;
+  }
+
+  .expandButton {
+    right: 30px;
+    bottom: 30px;
+  }
+}
